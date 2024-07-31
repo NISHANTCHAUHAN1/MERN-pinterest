@@ -10,23 +10,28 @@ export const UserProvider = ({ children }) => {
   const [btnLoading, setBtnLoading] = useState(false);
 
   // Register User
-  async function registerUser(name,email,password,naviagte) {
+  async function registerUser(name, email, password, naviagte, fetchPins) {
     setBtnLoading(true);
     try {
-      const { data } = await axios.post("/api/user/register", {name, email , password});
+      const { data } = await axios.post("/api/user/register", {
+        name,
+        email,
+        password,
+      });
       toast.success(data.message);
       setUser(user);
       setIsAuth(true);
       setBtnLoading(false);
-      naviagte('/');
-    } catch (error) {  
+      naviagte("/");
+      fetchPins();
+    } catch (error) {
       toast.error(error.response.data.message);
       setBtnLoading(false);
     }
   }
 
   // login user
-  async function loginUser(email, password, naviagte) {
+  async function loginUser(email, password, naviagte, fetchPins) {
     setBtnLoading(true);
     try {
       const { data } = await axios.post("/api/user/login", { email, password });
@@ -35,6 +40,7 @@ export const UserProvider = ({ children }) => {
       setIsAuth(true);
       setBtnLoading(false);
       naviagte("/");
+      fetchPins();
     } catch (error) {
       toast.error(error.response.data.message);
       setBtnLoading(false);
@@ -60,7 +66,16 @@ export const UserProvider = ({ children }) => {
 
   return (
     <UserContext.Provider
-      value={{ loginUser, btnLoading, isAuth, user, loading, registerUser}}
+      value={{
+        loginUser,
+        btnLoading,
+        isAuth,
+        user,
+        loading,
+        registerUser,
+        setIsAuth,
+        setUser,
+      }}
     >
       {children}
       <Toaster />
