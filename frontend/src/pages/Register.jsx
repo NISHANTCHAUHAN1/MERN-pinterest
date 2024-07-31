@@ -43,6 +43,7 @@ const Register = () => {
             <input
               type="text"
               id="name"
+              placeholder="Enter Your Name"
               className="common-input"
               value={name}
               onChange={(e) => setNmae(e.target.value)}
@@ -60,6 +61,7 @@ const Register = () => {
             <input
               type="email"
               id="email"
+              placeholder="Enter email"
               className="common-input"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -77,6 +79,7 @@ const Register = () => {
             <input
               type="password"
               id="password"
+              placeholder="Enter password"
               className="common-input"
               value={password}
               onChange={(e) => setPassword(e.target.value)}

@@ -63,6 +63,17 @@ export const UserProvider = ({ children }) => {
   useEffect(() => {
     fetchUser();
   }, []);
+  
+  // follow and unfollow
+  async function followUser(id, fetchUser) {
+    try {
+      const { data } = await axios.post('/api/user/follow/'+ id);
+      toast.success(data.message);
+      fetchUser();
+    } catch (error) {
+      toast.error(error.response.data.message);
+    }
+  }
 
   return (
     <UserContext.Provider
@@ -75,6 +86,7 @@ export const UserProvider = ({ children }) => {
         registerUser,
         setIsAuth,
         setUser,
+        followUser,
       }}
     >
       {children}

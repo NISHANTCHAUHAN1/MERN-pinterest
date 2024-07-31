@@ -52,8 +52,8 @@ const Account = ({ user }) => {
           </div>
 
           <div className="mt-4 flex flex-wrap justify-center gap-4">
-            {userPins && userPins.length > 0 ? (
-              userPins.map((e) => <PinCard key={e.id} pin={e} />)
+             {userPins && userPins.length > 0 ? (
+              userPins.map((e) => <PinCard key={e._id} pin={e} />)
             ) : (
               <p>No Pin Yet</p>
             )}

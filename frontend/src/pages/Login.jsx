@@ -42,6 +42,7 @@ const Login = () => {
             <input
               type="email"
               id="email"
+              placeholder="Enter email"
               className="common-input"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -59,6 +60,7 @@ const Login = () => {
             <input
               type="password"
               id="password"
+              placeholder="Enter password"
               className="common-input"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -92,6 +94,8 @@ const Login = () => {
               </Link>
             </span>
           </div>
+          <div className="w-full border-t border-gray-300 mt-3 gap-2"></div>
+          <div className=""> demo email: nish@gmail.com  <br /> password: nish</div>
         </div>
       </div>
     </div>

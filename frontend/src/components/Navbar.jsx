@@ -10,7 +10,7 @@ const Navbar = ({ user }) => {
              <img
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Pinterest-logo.png/600px-Pinterest-logo.png"
                alt="Pinterest"
-               className='h-6 md:mr-2'
+               className='h-10 md:mr-2'
             />
             <span className='text-red-600 text-xl font-bold'>Pinterest</span>
             </Link>

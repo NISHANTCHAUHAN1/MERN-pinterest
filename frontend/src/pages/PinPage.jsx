@@ -133,12 +133,12 @@ const PinPage = ({ user }) => {
 
                 <div className="flex items-center mt-4">
                   <div className="rounded-full h-12 w-12 bg-gray-300 flex items-center justify-center mr-4">
-                    <span className="font-bold">
+                    <span className="font-bold w-11 h-6 text-center">
                       {pin.owner && pin.owner.name.slice(0, 1)}
                     </span>
                   </div>
                   <form className="flex-1 flex" onSubmit={sumbitHandler}>
-                    <input
+                    <input 
                       type="text"
                       placeholder="Enter Comment"
                       className="flex-1 border rounded-lg p-2"
@@ -148,7 +148,7 @@ const PinPage = ({ user }) => {
                     />
                     <button
                       type="submit"
-                      className="ml-2 bg-red-500 px-4 py-2 rounded-md text-white"
+                      className="ml-2 bg-red-500 px-2 py-2 rounded-md text-white"
                     >
                       Add+
                     </button>

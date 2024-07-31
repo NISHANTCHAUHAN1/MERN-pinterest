@@ -43,9 +43,8 @@ export const PinProvider = ({ children }) => {
       toast.success(data.message);
       fetchPin(id);
       setEdit(false);
-      set;
     } catch (error) {
-      toast.error(error.response.error.message);
+      toast.error(error.response.data.message);
     }
   }
   // commnet add
