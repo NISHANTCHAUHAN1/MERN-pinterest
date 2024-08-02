@@ -97,6 +97,8 @@ export const PinProvider = ({ children }) => {
   ) {
     try {
       const { data } = await axios.post("/api/pin/new", formData);
+
+      toast.success(data.message);
       setFile([]);
       setFilePrev("");
       setPin("");
