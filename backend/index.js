@@ -4,6 +4,7 @@ import connectDb from './database/db.js';
 import cookieParser from "cookie-parser";
 import cloudinary from 'cloudinary';
 import path from 'path';
+import cors from 'cors';
 
 dotenv.config();
 cloudinary.v2.config({
@@ -13,6 +14,7 @@ cloudinary.v2.config({
   });
 
 const app = express();
+app.use(cors());
 
 const port = process.env.PORT;
 
