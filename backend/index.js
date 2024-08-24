@@ -16,7 +16,7 @@ cloudinary.v2.config({
 const app = express();
 app.use(cors());
 
-const port = process.env.PORT;
+const port = process.env.PORT || 5000;
 
 
 //using middleweares
@@ -26,11 +26,13 @@ app.use(cookieParser());  // npm cookie cookies pass for profile
 // import routing
 import userRoutes from './routes/userRoutes.js';
 import pinRoutes from "./routes/pinRoutes.js";
+import { log } from 'console';
 
 app.use('/api/user', userRoutes);
 app.use("/api/pin", pinRoutes);
 
 const __dirname = path.resolve();
+
 app.use(express.static(path.join(__dirname, "/frontend/dist")));
 
 app.get("*", (req, res) => {

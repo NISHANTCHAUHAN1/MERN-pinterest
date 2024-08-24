@@ -12,7 +12,7 @@ export const createPin = TryCatch(async (req, res) => {
 
   const cloud = await cloudinary.v2.uploader.upload(fileUrl.content);
 
-  await Pin.create({
+  await Pin.create({ 
     title,
     pin,
     image: {
