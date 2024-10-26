@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -10,9 +10,23 @@ import PinPage from "./pages/PinPage";
 import Create from "./pages/Create";
 import Account from "./pages/Account";
 import UserProfile from "./pages/UserProfile";
+import LoadingScreen from "./components/LoadingScreen/LoadingScreen";
 
 const App = () => {
   const { loading, isAuth, user } = UserData();
+
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate a network request or delay
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 3000); // 3 seconds delay
+  }, []);
+
+  if (isLoading) {
+    return <LoadingScreen />;
+  }
   return (
     <>
       {loading ? (
