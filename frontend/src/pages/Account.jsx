@@ -9,6 +9,7 @@ import { UserData } from "../context/UserContext";
 const Account = ({ user }) => {
   const { pins } = pinData();
   const {setIsAuth,setUser} = UserData();
+  
 
   let userPins;
   if (pins) {
