@@ -4,67 +4,15 @@ import getDataUrl from "../utils/urlGenerator.js";
 import cloudinary from "cloudinary";
 
 // create pin
-// export const createPin = TryCatch(async (req, res) => {
-//   const { title, pin } = req.body;
-
-//   const file = req.file;
-//   const fileUrl = getDataUrl(file);
-
-//   const cloud = await cloudinary.v2.uploader.upload(fileUrl.content);
-
-//   await Pin.create({ 
-//     title,
-//     pin,
-//     image: {
-//       id: cloud.public_id,
-//       url: cloud.secure_url,
-//     },
-//     owner: req.user._id,
-//   });
-
-//   res.json({message: "Pin Created"});
-// });
-
-
-// export const createPin = TryCatch(async (req, res) => {
-//   const { title, pin } = req.body;
-
-//   const file = req.file;
-//   const fileUrl = getDataUrl(file);
-
-//   // Specify the desired width and height in the upload options
-//   const cloud = await cloudinary.v2.uploader.upload(fileUrl.content, {
-//     width: 300,
-//     height: 290,
-//     crop: "fill", // Crops the image to fit within the specified width and height
-//   });
-
-//   await Pin.create({
-//     title,
-//     pin,
-//     image: {
-//       id: cloud.public_id,
-//       url: cloud.secure_url,
-//     },
-//     owner: req.user._id,
-//   });
-
-//   res.json({ message: "Pin Created" });
-// });
-
 export const createPin = TryCatch(async (req, res) => {
   const { title, pin } = req.body;
 
   const file = req.file;
   const fileUrl = getDataUrl(file);
 
-  // Specify the desired width and let Cloudinary adjust the height proportionally
-  const cloud = await cloudinary.v2.uploader.upload(fileUrl.content, {
-    width: 300,       // Set the width to 500px (or any desired width for uniformity)
-    crop: "scale",    // Scales the image while maintaining the aspect ratio
-  });
+  const cloud = await cloudinary.v2.uploader.upload(fileUrl.content);
 
-  await Pin.create({
+  await Pin.create({ 
     title,
     pin,
     image: {
@@ -74,9 +22,8 @@ export const createPin = TryCatch(async (req, res) => {
     owner: req.user._id,
   });
 
-  res.json({ message: "Pin Created" });
+  res.json({message: "Pin Created"});
 });
-
 
 
 // getallpin
