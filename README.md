@@ -30,3 +30,27 @@ This is a full-stack Pinterest-inspired web application built using the MERN (Mo
 - MongoDB (local or cloud-based)
 - Cloudinary account (for image storage)
 
+## 1. Clone the repository
+- git clone https://github.com/NISHANTCHAUHAN1/pinterest-clone.git
+- cd pinterest-clone
+
+## 2. Install dependencies
+- Backend: Navigate to the backend directory and install packages
+- cd backend
+- npm install
+
+- Frontend: Navigate to the frontend directory and install packages.
+- cd ../frontend
+- npm install
+
+
+## Contributing
+Contributions are welcome! Feel free to submit a pull request or open an issue to discuss your ideas.
+
+# Acknowledgments
+
+- Inspired by Pinterest
+- Cloudinary for efficient image handling
+
+
+
