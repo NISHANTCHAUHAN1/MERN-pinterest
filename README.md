@@ -31,7 +31,7 @@ This is a full-stack Pinterest-inspired web application built using the MERN (Mo
 - Cloudinary account (for image storage)
 
 ## 1. Clone the repository
-- git clone https://github.com/NISHANTCHAUHAN1/pinterest-clone.git
+- git clone https://github.com/NISHANTCHAUHAN1/MERN-pinterest.git
 - cd pinterest-clone
 
 ## 2. Install dependencies
