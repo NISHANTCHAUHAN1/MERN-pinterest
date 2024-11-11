@@ -7,7 +7,15 @@ import { FaEdit } from "react-icons/fa";
 
 const PinPage = ({ user }) => {
   const params = useParams();
-  const { fetchPin, pin, loading, updatePin, addComment, deleteComment, deletePin} = pinData();
+  const {
+    fetchPin,
+    pin,
+    loading,
+    updatePin,
+    addComment,
+    deleteComment,
+    deletePin,
+  } = pinData();
   // console.log(pin);
   const [edit, setEdit] = useState(false);
   const [title, setTitle] = useState("");
@@ -30,15 +38,15 @@ const PinPage = ({ user }) => {
   };
 
   const deleteCommentHandler = (id) => {
-    if(confirm("Are you sure you want to delete this pin"))
+    if (confirm("Are you sure you want to delete this pin"))
       deleteComment(pin._id, id);
-  }
+  };
 
-  const naviagte = useNavigate()
+  const naviagte = useNavigate();
   const deletePinHandler = () => {
     if (confirm("Are you sure you want to delete this pin"))
       deletePin(pin._id, naviagte);
-  }
+  };
   useEffect(() => {
     fetchPin(params.id);
   }, [params.id]);
@@ -49,13 +57,13 @@ const PinPage = ({ user }) => {
           {loading ? (
             <Loading />
           ) : (
-            <div className="bg-white rounded-lg shadow-lg flex flex-wrap w-full max-w4xl">
-              <div className="w-full md:w-1/2 bg-gray-200 rounded-t-lg md:rounded-l-lg md:rounded-t-none flex items-center justify-center">
+            <div className="bg-white rounded-lg shadow-lg flex flex-wrap w-full max-w-4xl">
+              <div className="w-full md:w-1/2 bg-gray-200 rounded-t-lg md:rounded-l-lg md:rounded-t-none flex items-center justify-center lg:max-w-lg">
                 {pin.image && (
                   <img
                     src={pin.image.url}
                     alt=""
-                    className="object-cover w-full rounded-t-lg md:rounded-l-lg md:rounded-t-none"
+                    className="object-contain w-full h-full rounded-t-lg md:rounded-l-lg md:rounded-t-none max-h-96"
                   />
                 )}
               </div>
@@ -81,7 +89,10 @@ const PinPage = ({ user }) => {
                   )}
 
                   {pin.owner && pin.owner._id === user._id && (
-                    <button onClick={deletePinHandler} className="bg-red-500 text-white py-1 px-3 rounded">
+                    <button
+                      onClick={deletePinHandler}
+                      className="bg-red-500 text-white py-1 px-3 rounded"
+                    >
                       <MdDelete />
                     </button>
                   )}
@@ -132,13 +143,13 @@ const PinPage = ({ user }) => {
                 )}
 
                 <div className="flex items-center mt-4">
-                  <div className="rounded-full h-12 w-12 bg-gray-300 flex items-center justify-center mr-4">
+                  {/* <div className="rounded-full h-12 w-12 bg-gray-300 flex items-center justify-center mr-4">
                     <span className="font-bold w-11 h-6 text-center">
                       {pin.owner && pin.owner.name.slice(0, 1)}
                     </span>
-                  </div>
+                  </div> */}
                   <form className="flex-1 flex" onSubmit={sumbitHandler}>
-                    <input 
+                    <input
                       type="text"
                       placeholder="Enter Comment"
                       className="flex-1 border rounded-lg p-2"
@@ -154,12 +165,16 @@ const PinPage = ({ user }) => {
                     </button>
                   </form>
                 </div>
+
                 <hr className="font-bold text-gray-400 mt-3 mb-3" />
 
                 <div className="overflow-y-auto h-64">
                   {pin.comments && pin.comments.length > 0 ? (
                     pin.comments.map((e, i) => (
-                      <div key={i} className="flex items-center justify-between mb-4">
+                      <div
+                        key={i}
+                        className="flex items-center justify-between mb-4"
+                      >
                         <div className="flex items-center mb-4 justify-center gap-3">
                           <Link to={`/user/${e.user}`}>
                             <div className="rounded-full h-12 w-12 bg-gray-300 flex items-center justify-center">
@@ -178,11 +193,15 @@ const PinPage = ({ user }) => {
                             </div>
                           </div>
 
-                          {e.user === user._id && 
-                            <button 
-                             onClick={() => deleteCommentHandler(e._id)}
-                            className="bg-red-500 text-white py-1 px-3 mt-2 mb-2 rounded"> <MdDelete /> </button>
-                          }
+                          {e.user === user._id && (
+                            <button
+                              onClick={() => deleteCommentHandler(e._id)}
+                              className="bg-red-500 text-white py-1 px-3 mt-2 mb-2 rounded"
+                            >
+                              {" "}
+                              <MdDelete />{" "}
+                            </button>
+                          )}
                         </div>
                       </div>
                     ))

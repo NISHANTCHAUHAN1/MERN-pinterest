@@ -4,6 +4,7 @@ import getDataUrl from "../utils/urlGenerator.js";
 import cloudinary from "cloudinary";
 
 // create pin
+
 export const createPin = TryCatch(async (req, res) => {
   const { title, pin } = req.body;
 
