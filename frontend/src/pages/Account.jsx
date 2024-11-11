@@ -6,7 +6,6 @@ import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { UserData } from "../context/UserContext";
 
-
 const Account = ({ user }) => {
   const { pins } = pinData();
   const { setIsAuth, setUser } = UserData();
