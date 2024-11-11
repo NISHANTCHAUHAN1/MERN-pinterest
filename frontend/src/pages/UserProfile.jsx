@@ -76,9 +76,21 @@ const UserProfile = ({ user: loggedInUser }) => {
               </div>
             )}
 
-            <div className="mt-4 flex flex-wrap justify-center gap-4">
+            {/* <div className="mt-4 flex flex-wrap justify-center gap-4">
               {userPins && userPins.length > 0 ? (
                 userPins.map((e) => <PinCard key={e._id} pin={e} />)
+              ) : (
+                <p>No Pin Yet</p>
+              )}
+            </div> */}
+
+            <div className="mt-4 flex flex-wrap justify-center gap-4">
+              {userPins && userPins.length > 0 ? (
+                userPins.map((e) => (
+                  <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5">
+                    <PinCard key={e._id} pin={e} />
+                  </div>
+                ))
               ) : (
                 <p>No Pin Yet</p>
               )}
