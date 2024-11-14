@@ -1,6 +1,5 @@
 import React from "react";
 import { pinData } from "../context/pinContext";
-// import PinCard from "../components/PinCard";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
