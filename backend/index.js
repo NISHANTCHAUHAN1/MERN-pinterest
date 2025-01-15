@@ -34,6 +34,7 @@ import pinRoutes from "./routes/pinRoutes.js";
 app.use('/api/user', userRoutes);
 app.use("/api/pin", pinRoutes);
 
+
 const __dirname = path.resolve();
 
 app.use(express.static(path.join(__dirname, "/frontend/dist")));
